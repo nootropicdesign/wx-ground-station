@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>weather satellite ground station</title>
+    <!--   Replace SDK_VERSION_NUMBER with the current SDK version number -->
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.540.0.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+    integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+    crossorigin=""></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
+    <script src="tle.js"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <style>
+    body {
+      background-color: #282828;
+      color: #eeeeee;
+    }
+    .logo {
+      width: 300px;
+    }
+    #static_map {
+      height: 320px;
+      width: 50%;
+      padding-left: 0px;
+    }
+    #flyover_map {
+      height: 320px;
+      width: 50%;
+    }
+    #location {
+      margin-top: 0px;
+    }
+    </style>
+
+  </head>
+  <body>
+    <div style="font-size: 0.9rem; font-family: Menlo,Monaco,Consolas,Courier New,monospace;" class="container">
+      <div class="mt-5 mb-5">
+        <a href="https://nootropicdesign.com"><img src="logo.png" class="logo"/></a>
+        <h4>weather satellite ground station</h4>
+        <h4 id="location"></h4>
+      </div>
+      <div id="upcoming_passes" class="mb-2">
+      </div>
+      <div id="maps" class="row col-lg-12 col-md-12 col-xs-12 mb-5">
+          <div id="static_map" class="col-lg-6 col-md-12 col-xs-12"></div><div id="flyover_map" class="col-lg-6 col-md-12 col-xs-12"></div>
+      </div>
+      <div id="previous_passes">
+        <h4>Recent captures:</h4>
+      </div>
+      <div id="messages"></div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="wx-ground-station.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        load();
+      });
+  </script>
+  </body>
+</html>
