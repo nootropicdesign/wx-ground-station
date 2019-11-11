@@ -2,8 +2,8 @@ var fs =  require('fs');
 var AWS = require('aws-sdk');
 var uuid = require('uuid');
 
-var BUCKET = "";
 var REGION = "";
+var BUCKET = "";
 var IMAGE_DIR = "images/";
 
 AWS.config.update({region: REGION});
