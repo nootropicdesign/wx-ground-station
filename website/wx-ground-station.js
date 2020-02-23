@@ -412,6 +412,8 @@ function getUpcomingPassInfo() {
         }
       });
 
+      staticMap.setZoom(0);
+
       setInterval(() => {
         staticMap.getSource('satellite-location').setData(getSatLocationPoint());
       }, 500);
